@@ -1,0 +1,149 @@
+<DOCTYPE html>
+    <html>
+    <head>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f2f2f2;
+                margin: 0;
+                padding: 20px;
+            }
+            h1 {
+                text-align: center;
+            }
+            form 
+            {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                max-width: 400px;
+                margin: auto;
+            }
+            label {
+                display: block;
+                margin-bottom: 10px;
+            }
+            input[type="text"],
+            input[type="email"],
+            input[type="password"] {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 20px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+            input[type="submit"] {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px 15px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            input[type="submit"]:hover {
+                background-color: #45a049;
+            }
+            .error {
+                color: red;
+                margin-bottom: 10px;
+            }
+            .success {
+                color: green;
+                margin-bottom: 10px;
+            }
+            .info {
+                color: blue;
+                margin-bottom: 10px;
+            }
+            .warning {
+                color: orange;
+                margin-bottom: 10px;
+            }
+            .debug {
+                color: purple;
+                margin-bottom: 10px;
+            }
+            .critical {
+                color: darkred;
+                margin-bottom: 10px;
+            }
+            .alert {
+                color: darkorange;
+                margin-bottom: 10px;
+            }
+            .emergency {
+                color: darkred;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+            .notice {
+                color: teal;
+                margin-bottom: 10px;
+            }
+            .trace {
+                color: gray;
+                margin-bottom: 10px;
+            }
+            .fatal {
+                color: black;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+                
+               
+        </style>
+        <title>registration form</title>
+    </head>
+    <body>
+        <h1>Welcome to the registration form</h1>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirm password">Confirm Password:</label>
+            <input type="password" id="confirm password" name="confirm password" required>
+
+            <label>
+                <input type="checkbox" id="terms" name="terms" required>
+                I agree to the terms and conditions
+            </label>
+
+            <input type="submit" value="Register">
+        </form>
+        <script>
+            function validateForm() {
+                var name = document.getElementById("name").value;
+                var email = document.getElementById("email").value;
+                var password = document.getElementById("password").value;
+                var confirmPassword = document.getElementById("confirm password").value;
+                var terms = document.getElementById("terms").checked;
+
+                if (name === "" || email === "" || password === "" || confirmPassword === "") {
+                    alert("All fields are required!");
+                    return false;
+                }
+
+                if (password !== confirmPassword) {
+                    alert("Passwords do not match!");
+                    return false;
+                }
+
+                if (!terms) {
+                    alert("You must agree to the terms and conditions!");
+                    return false;
+                }
+
+                alert("Registration successful!");
+                return true;
+            }
+
+            document.querySelector("form").onsubmit = validateForm;
+    </body>
+    </html>
